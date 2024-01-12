@@ -16,13 +16,12 @@ class FriendInvitation(models.Model):
 
 #danh sach ban be
 class Friendship(models.Model):
-    user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
-    friend = models.ForeignKey(User, related_name='friend', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='friend_list')
+    friends = models.ManyToManyField(User, related_name='friends')
 
     def __str__(self):
-        return f"{self.user.username} -> {self.friend.username}"
+        return f"Friend List of {self.user.username}"
 
-    
 
 
 #danh sach chap nhan ket bạn

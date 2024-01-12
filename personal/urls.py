@@ -1,7 +1,9 @@
 from django.urls import path
 from django.contrib import admin
 from . import views
-from .views import friend_invitations, send_friend_invitation, friend_list, friend_requests, accept_friend_request
+from .views import (friend_list, friend_invitations, send_friend_invitation, friend_requests,
+                    accept_friend_request)
+
 
 urlpatterns = [
     path('',views.home,name="home"),
