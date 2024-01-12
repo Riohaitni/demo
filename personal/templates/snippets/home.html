@@ -1,0 +1,86 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+
+    <title>CHATAPP</title>
+
+</head>
+<body>
+<!-- header -->
+
+
+
+<style type="text/css">
+    .main{
+        min-height: 100vh;
+        height: 100%;
+    }
+</style>
+
+
+
+
+<!-- footer -->
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
+
+
+
+<style type="text/css">
+    .my-grid{
+        border: 1px solid black;
+    }
+    .my-grid-item{
+        border: 1px solid black;
+    }
+
+</style>
+
+<div class="container">
+    <div class="my-grid d-flex flex-row">
+
+        <p>
+            <a href="{% url 'dskb' %}" >
+                <p class="my-grid-item m-auto"><span class="material-symbols-outlined">person_add</span></p>
+            </a>
+        </p>
+
+
+        <p>
+            <a href="{% url 'dsbb' %}" >
+                <p class="my-grid-item m-auto"><span class="material-symbols-outlined">person</span></p>
+            </a>
+        </p>
+
+
+        <p>
+            <a href="{% url 'dsloimoikb' %}" >
+                <p class="my-grid-item m-auto"><span class="material-symbols-outlined">drafts</span></p>
+            </a>
+        </p>
+
+
+    </div>
+
+{#    <div class="my-grid d_flex flex-column mt-4">#}
+{#        <p class="my-grid-item m-auto">Item</p>#}
+{#    </div>#}
+
+</div>
+
+{% block content1 %}
+{% endblock content1 %}

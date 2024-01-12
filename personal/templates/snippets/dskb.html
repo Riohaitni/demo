@@ -1,0 +1,153 @@
+{% extends 'snippets/home.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content1 %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách kết bạn</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+      }
+
+      header {
+        background-color: #4267b2;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .friend-container {
+        width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        
+      }
+
+      .friend-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .friend-list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        
+      }
+
+      .friend-list-item:hover {
+        background-color: #f0f0f0;
+        
+      }
+
+      .friend-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .friend-name {
+        font-weight: bold;
+      }
+
+      .add-friend-button {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      .add-friend-button.sent {
+          background-color: #ccc;
+          cursor: not-allowed;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Danh sách kết bạn</h1>
+    </header>
+
+    <div class="friend-container">
+      <h1>Những người bạn có thể biết</h1>
+      <ul class="friend-list">
+
+        <li class="friend-list-item">
+          <img src="avatar1.jpg" alt="Avatar" class="friend-avatar" />
+          <div>
+            <div class="friend-name">Người bạn 1</div>
+          </div>
+          <button class="add-friend-button" onclick="acceptFriendRequest('Người Bạn 1')">Kết Bạn</button>
+        </li>
+        
+        <li class="friend-list-item">
+          <img src="avatar2.jpg" alt="Avatar" class="friend-avatar" />
+          <div>
+            <div class="friend-name">Người bạn 2</div>
+          </div>
+          <button  class="add-friend-button" onclick="acceptFriendRequest('Người Bạn 2')" >Kết Bạn</button>
+        </li>
+
+        <li class="friend-list-item">
+          <img src="avatar3.jpg" alt="Avatar" class="friend-avatar" />
+          <div>
+            <div class="friend-name">Người bạn 3</div>
+          </div>
+          <button class="add-friend-button" onclick="acceptFriendRequest('Người Bạn 3')">Kết Bạn</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // Hàm xử lý khi click nút Chấp nhận
+      function acceptFriendRequest(button, friendName) {
+          {#document.getElementById("demo").onclick = function() {myFunction()};#}
+          {#document.getElementById("demo").innerHTML = "Đã gửi lời mời kết bạn";#}
+
+          {#document.getElementById("demo2").onclick = function() {myFunction()};#}
+          {#document.getElementById("demo2").innerHTML = "Đã gửi lời mời kết bạn";#}
+          {##}
+          {#document.getElementById("demo3").onclick = function() {myFunction()};#}
+          {#document.getElementById("demo3").innerHTML = "Đã gửi lời mời kết bạn";#}
+          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
+          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
+          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
+          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
+
+
+          console.log('Button clicked for ' + friendName);
+          button.textContent = 'Đã Gửi Lời Mời';
+
+
+      }
+    </script>
+
+
+</li>
+
+
+    
+  </body>
+</html>
+{% endblock content1 %}
