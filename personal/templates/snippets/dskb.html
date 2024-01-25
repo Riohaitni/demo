@@ -81,73 +81,48 @@
           cursor: not-allowed;
       }
 
-
     </style>
   </head>
   <body>
     <header>
       <h1>Danh sách kết bạn</h1>
     </header>
-
     <div class="friend-container">
       <h1>Những người bạn có thể biết</h1>
-      <ul class="friend-list">
+     <ul class="friend-list">
+        {% for user in users %}
+          <li class="friend-list-item">
+          <img src="{% static 'img/avatar.jpg' %}" alt="Avatar" class="friend-avatar" />
+            <div>
+              <div class="friend-name">{{ user.username }}</div>
+            </div>
+            <button type="submit" class="add-friend-button" onclick="acceptFriendRequest('{{ user.username }}', this)">Kết Bạn</button>
 
-        <li class="friend-list-item">
-          <img src="avatar1.jpg" alt="Avatar" class="friend-avatar" />
-          <div>
-            <div class="friend-name">Người bạn 1</div>
-          </div>
-          <button class="add-friend-button" onclick="acceptFriendRequest('Người Bạn 1')">Kết Bạn</button>
-        </li>
-        
-        <li class="friend-list-item">
-          <img src="avatar2.jpg" alt="Avatar" class="friend-avatar" />
-          <div>
-            <div class="friend-name">Người bạn 2</div>
-          </div>
-          <button  class="add-friend-button" onclick="acceptFriendRequest('Người Bạn 2')" >Kết Bạn</button>
-        </li>
-
-        <li class="friend-list-item">
-          <img src="avatar3.jpg" alt="Avatar" class="friend-avatar" />
-          <div>
-            <div class="friend-name">Người bạn 3</div>
-          </div>
-          <button class="add-friend-button" onclick="acceptFriendRequest('Người Bạn 3')">Kết Bạn</button>
-        </li>
+          </li>
+        {% endfor %}
       </ul>
     </div>
 
     <script>
-      // Hàm xử lý khi click nút Chấp nhận
-      function acceptFriendRequest(button, friendName) {
-          {#document.getElementById("demo").onclick = function() {myFunction()};#}
-          {#document.getElementById("demo").innerHTML = "Đã gửi lời mời kết bạn";#}
-
-          {#document.getElementById("demo2").onclick = function() {myFunction()};#}
-          {#document.getElementById("demo2").innerHTML = "Đã gửi lời mời kết bạn";#}
-          {##}
-          {#document.getElementById("demo3").onclick = function() {myFunction()};#}
-          {#document.getElementById("demo3").innerHTML = "Đã gửi lời mời kết bạn";#}
-          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
-          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
-          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
-          document.querySelector('.add-friend-button').textContent = 'Đã gửi lời mời kết bạn';
-
-
-          console.log('Button clicked for ' + friendName);
-          button.textContent = 'Đã Gửi Lời Mời';
-
-
+      function acceptFriendRequest(username, button) {
+    // Thực hiện yêu cầu Ajax để gửi lời mời kết bạn
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Xử lý phản hồi từ máy chủ (nếu cần)
+        console.log(xhr.responseText);
+      }
+    };
+    // Thực hiện POST request đến một URL xác định
+    xhr.open("POST", "/dskb/", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //username của người bạn muốn kết bạn
+    xhr.send("friend_username=" + encodeURIComponent(username));
+    // Tắt nút kết bạn để tránh gửi nhiều lời mời
+    button.disabled = true;
+    button.innerHTML = "Đã Gửi Yêu Cầu";
       }
     </script>
-
-
-</li>
-
-
-    
   </body>
 </html>
 {% endblock content1 %}

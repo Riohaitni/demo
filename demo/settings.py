@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'static',
     'personal',
+    'rest_framework',
 
 ]
 
