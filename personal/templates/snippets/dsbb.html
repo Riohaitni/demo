@@ -78,7 +78,6 @@
       <header>
         <h1>Danh sách bạn bè</h1>
       </header>
-
       <div class="friend-container">
     <h1>Những người bạn của bạn</h1>
           {% for friendship in friendships %}
@@ -88,6 +87,7 @@
         <img src="{% static 'img/avatar.jpg' %}" alt="Avatar" class="friend-avatar" />
         <div>
           <div class="friend-name">{{ friend.username }}</div>
+{#            <p>{{ friend_request.sender.username }} đã trở thành bạn bè của bạn.</p>#}
         </div>
         <button class="message-btn" onclick="sendMessage('{{ friend.username }}')">Gửi tin nhắn</button>
       </li>
@@ -95,15 +95,12 @@
     </ul>
           {% endfor %}
   </div>
-
       <script>
     // Hàm xử lý khi click nút Gửi tin nhắn
     function sendMessage(friendName) {
         alert(`Đang gửi tin nhắn cho ${friendName}`);
     }
       </script>
-
-
     </body>
     </html>
 
